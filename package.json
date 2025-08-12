@@ -1,0 +1,29 @@
+{
+  "name": "nasa_mission",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "client:install": "npm install --prefix client",
+    "server:install": "npm install --prefix server",
+    "install": "npm run client:install && npm run server:install",
+    "start:server": "npm run start:windows --prefix server",
+    "start:client": "npm start --prefix client",
+    "start": "concurrently \"npm run start:client\" \"npm run start:server\"",
+    "deploy": "npm run build --prefix client && npm run start:server",
+    "deploy:cluster": "npm run build --prefix client && npm run cluster --prefix server",
+    "test": "npm run test --prefix server",
+    "watch:test": "npm run watch:test --prefix server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.0",
+    "helmet": "^8.1.0"
+  }
+}
